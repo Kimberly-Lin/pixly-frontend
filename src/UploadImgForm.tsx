@@ -20,7 +20,9 @@ function UploadImgForm({ handleImgUpload }) {
     return (
         <div className="App">
             <form onSubmit={handleSubmit}>
+                <label htmlFor="caption">Caption: </label>
                 <input
+                    id="caption"
                     type="text"
                     value={caption}
                     onChange={(e) => setCaption(e.target.value)}

@@ -3,7 +3,7 @@ import UploadImgForm from './UploadImgForm';
 import axios from 'axios';
 import { useState } from 'react';
 
-const API_URL='http://localhost:5000/upload';
+const API_URL = 'http://localhost:5000/upload';
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
   async function handleImgUpload(image, caption) {
     // Create an object of formData
     setImageFile(image);
-    
+
     const formData = new FormData();
 
     // Update the formData object
@@ -21,6 +21,12 @@ function App() {
       image,
       image.name
     );
+
+    formData.append(
+      'caption',
+      caption
+    )
+
     console.log(formData['file']);
     // Request made to the backend api
     // Send formData object
@@ -30,7 +36,7 @@ function App() {
   }
 
   console.log('imageFile is:', imageFile);
-  
+
   return (
     <UploadImgForm handleImgUpload={handleImgUpload} />
   );
