@@ -1,5 +1,3 @@
-import React from "react";
-
 interface CardPropsInterface {
     src: string;
     caption: string
@@ -13,7 +11,7 @@ interface CardPropsInterface {
  * State:
  * - none
  * 
- * App --> Card
+ * {ImageUpload, AllImages} -> ImageCard
  */
 
 function ImageCard({ src, caption }: CardPropsInterface) {

@@ -1,12 +1,10 @@
 import { useState } from 'react';
-// import axios from 'axios';
 
 import ImageCard from './ImageCard';
 import UploadImgForm from './UploadImgForm';
 import PixlyAPI from './PixlyAPI';
 
-// const API_UPLOAD_URL = 'http://localhost:5000/upload';
-
+import { ImageDataInterface } from './interfaces';
 
 /** Renders image upload form or displays uploaded image
  * 
@@ -19,17 +17,10 @@ import PixlyAPI from './PixlyAPI';
  * Location: /upload
  */
 
-interface ImageDetailInterface {
-  id: string;
-  caption: string;
-  imgUrl: string;
-  width?: number;
-  length?: number;
-}
 
 function ImageUpload() {
 
-  const [image, setImage] = useState<ImageDetailInterface | null>(null);
+  const [image, setImage] = useState<ImageDataInterface | null>(null);
 
   async function handleImgUpload(image: File, caption: string): Promise<void> {
     const formData = new FormData();
@@ -43,7 +34,10 @@ function ImageUpload() {
 
     const imgData = await PixlyAPI.uploadImage(formData);
 
-    setImage(imgData.img);
+    setImage(imgData);
+
+    // return <Redirect push to='imageLoaction'
+    //add loading spinner 
   }
 
   return (

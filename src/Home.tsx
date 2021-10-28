@@ -1,5 +1,12 @@
-import react from 'react';
-
+/** Renders Home page
+ * 
+ * Props: none
+ * State: none
+ * 
+ * Routes -> Home
+ * 
+ * Location: /
+ */
 function Home() {
     return (
         <div>

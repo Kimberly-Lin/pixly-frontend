@@ -1,18 +1,18 @@
 import axios from 'axios';
+import { ImageDataInterface } from './interfaces';
 
 const API_URL = 'http://localhost:5000';
 
 /** List of API calls for Pixly App */
 class PixlyAPI {
 
-  /** Method for uploading images. Takes in formData object and returns {imgUrl, } */
+  /** Method for uploading images. Takes in formData object and 
+   * returns {id, caption, imageUrl, width, length} */
 
-  static async uploadImage(formData) {
+  static async uploadImage(formData): Promise<ImageDataInterface> {
     try {
       const resp = await axios.post(`${API_URL}/upload`, formData);
-      const response = { ...resp.data, imgUrl: resp.data.img_url };
-      delete response.img_url;
-      return (response);
+      return (resp.data);
     }
     catch (err) {
       throw err;
@@ -20,10 +20,10 @@ class PixlyAPI {
   }
 
   /** Method for getting all images in db. 
-   * Returns [image, image,...] where image = {id, caption, image_url, width, length} 
+   * Returns [image, image,...] where image = {id, caption, imageUrl, width, length} 
    * */
 
-  static async getAllImages() {
+  static async getAllImages(): Promise<ImageDataInterface[]> {
     try {
       const resp = await axios.get(`${API_URL}/all`)
       return resp.data.images;

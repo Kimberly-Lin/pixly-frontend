@@ -5,7 +5,12 @@ import { BrowserRouter } from "react-router-dom";
 import Routes from "./Routes";
 import Nav from "./Nav";
 
-
+/** Renders Pixly App
+ * 
+ * Props, State: none
+ * 
+ * Index -> App -> {Nav, Routes}
+ */
 function App() {
 
   return (
