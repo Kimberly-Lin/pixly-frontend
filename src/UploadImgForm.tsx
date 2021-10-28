@@ -7,13 +7,17 @@ import React, { useState } from "react";
  * 
  * App -> UploadImgForm
  */
-function UploadImgForm({ handleImgUpload }) {
-    const [caption, setCaption] = useState("");
-    const [selectedFile, setSelectedFile] = useState(null);
 
-    function handleSubmit(evt) {
+interface UploadImgFormProps {
+    handleImgUpload: (image: File, caption: string) => Promise<void>;
+}
+
+function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
+    const [caption, setCaption] = useState<string>("");
+    const [selectedFile, setSelectedFile] = useState<File>(new File([""], "emptyFile"));
+
+    function handleSubmit(evt: React.FormEvent) {
         evt.preventDefault();
-        console.log('handle submit is running in form')
         handleImgUpload(selectedFile, caption);
     }
 
@@ -25,13 +29,16 @@ function UploadImgForm({ handleImgUpload }) {
                     id="caption"
                     type="text"
                     value={caption}
-                    onChange={(e) => setCaption(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCaption(e.target.value)}
                 />
-
+                <br/>
+                <label htmlFor="imageUpload">Upload your image here: </label>
                 <input
                     type="file"
-                    onChange={(e) => setSelectedFile(e.target.files[0])}
+                    id="imageUpload"
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSelectedFile(e.target.files[0])}
                 />
+                <br/>
                 <button>
                     Upload!
                 </button>
@@ -41,3 +48,5 @@ function UploadImgForm({ handleImgUpload }) {
 }
 
 export default UploadImgForm;
+
+//Typescript needs updating on file input e.target.files
