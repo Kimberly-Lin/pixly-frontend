@@ -13,6 +13,7 @@ function Nav() {
         <div>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/upload">Upload</NavLink>
+            <NavLink to="/all">All</NavLink>
         </div>
     )
 }

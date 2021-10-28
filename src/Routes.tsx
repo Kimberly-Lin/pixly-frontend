@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 import ImageUpload from "./ImageUpload";
 import Home from "./Home";
+import AllImages from "./AllImages";
 
 /** Routing for components for each URL
  * 
@@ -12,11 +13,14 @@ import Home from "./Home";
  * App -> Routes > {ImageUpload, Home}
  */
 function Routes() {
-    
+
     return (
         <Switch>
+            <Route exact path="/all">
+                <AllImages />
+            </Route>
             <Route exact path="/upload">
-                <ImageUpload/>
+                <ImageUpload />
             </Route>
             <Route exact path="/">
                 <Home />

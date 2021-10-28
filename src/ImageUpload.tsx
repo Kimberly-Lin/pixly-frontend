@@ -1,10 +1,11 @@
-import react, { useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
+// import axios from 'axios';
 
 import ImageCard from './ImageCard';
 import UploadImgForm from './UploadImgForm';
+import PixlyAPI from './PixlyAPI';
 
-const API_UPLOAD_URL = 'http://localhost:5000/upload';
+// const API_UPLOAD_URL = 'http://localhost:5000/upload';
 
 
 /** Renders image upload form or displays uploaded image
@@ -17,9 +18,18 @@ const API_UPLOAD_URL = 'http://localhost:5000/upload';
  * 
  * Location: /upload
  */
+
+interface ImageDetailInterface {
+  id: string;
+  caption: string;
+  imgUrl: string;
+  width?: number;
+  length?: number;
+}
+
 function ImageUpload() {
 
-  const [imageUrl, setImageUrl] = useState<string>("");
+  const [image, setImage] = useState<ImageDetailInterface | null>(null);
 
   async function handleImgUpload(image: File, caption: string): Promise<void> {
     const formData = new FormData();
@@ -29,18 +39,19 @@ function ImageUpload() {
       image.name
     );
 
-    formData.append('caption', caption)
+    formData.append('caption', caption);
 
-    const resp = await axios.post(API_UPLOAD_URL, formData);
-    setImageUrl(resp.data.imgUrl);
+    const imgData = await PixlyAPI.uploadImage(formData);
+
+    setImage(imgData.img);
   }
 
   return (
     <div>
-      {imageUrl 
-      ? <ImageCard src={imageUrl} />
-      : <UploadImgForm handleImgUpload={handleImgUpload} />
-       }
+      {image
+        ? <ImageCard src={image.imgUrl} caption={image.caption} />
+        : <UploadImgForm handleImgUpload={handleImgUpload} />
+      }
     </div>
   );
 }
