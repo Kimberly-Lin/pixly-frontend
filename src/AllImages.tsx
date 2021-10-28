@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
+
 import Loading from "./Loading";
 import ImageCard from "./ImageCard";
 import PixlyAPI from "./PixlyAPI"
@@ -36,8 +38,12 @@ function AllImages() {
     < div >
       {images.length === 0
         ? <h3>No images uploaded</h3>
-        : images.map((image) =>
-          <ImageCard src={image.imgUrl} caption={image.caption}></ImageCard>)
+        : images.map(image =>
+          <div key={image.id}>
+            <Link to={`/image/${image.id}`}>
+              <ImageCard src={image.imgUrl} caption={image.caption} />
+            </Link>
+          </div>)
       }
     </div >
   )

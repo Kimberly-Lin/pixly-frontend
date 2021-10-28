@@ -33,6 +33,20 @@ class PixlyAPI {
     }
   }
 
+  /** Method for getting all images in db. 
+   * Returns [image, image,...] where image = {id, caption, imageUrl, width, length} 
+   * */
+
+  static async getImage(id): Promise<ImageDataInterface> {
+    try {
+      const resp = await axios.get(`${API_URL}/image/${id}`)
+      return resp.data.image;
+    }
+    catch (err) {
+      throw err;
+    }
+  }
+
 }
 
 export default PixlyAPI;
