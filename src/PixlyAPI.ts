@@ -54,7 +54,7 @@ class PixlyAPI {
   static async startEdit(id): Promise<string> {
     try {
       const resp = await axios.post(`${API_URL}/image/${id}/start_edit`)
-      return resp.data;
+      return resp.data.file_location;
     }
     catch (err) {
       throw err;
@@ -73,6 +73,7 @@ class PixlyAPI {
           'edit_type': editType,
           'file_location': fileLocation
         })
+      console.log('in edit api', resp.data);
       return resp.data.file_location; //Need to confirm
     }
     catch (err) {

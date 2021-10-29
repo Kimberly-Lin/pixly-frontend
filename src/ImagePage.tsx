@@ -23,7 +23,7 @@ function ImagePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [image, setImage] = useState<ImageDataInterface | null>(null);
     const [fileLocation, setFileLocation] = useState(null);
-    const [editIsSuccessful, setEditIsSuccessful] = useState({ "success": false });
+    const [cueRender, setCueRender] = useState(false);
 
     const { id } = useParams('id');
 
@@ -37,17 +37,15 @@ function ImagePage() {
 
     async function startEdit() {
         const result = await PixlyAPI.startEdit(id);
-        console.log("startEdit", { result })
+        console.log("startEdit fileLocation is: ", result)
         setFileLocation(result);
         setIsEditing(true);
     }
 
     function handleEdit(fileLocation) {
         console.log("handleEdit ran", { fileLocation })
-        // if (successMessage === "Edit Success") {
-        //     setEditIsSuccessful({ "success": true }); //need fix! maybe change imageCard to editCard
-        // }
         setFileLocation(fileLocation);
+        setCueRender(r => !r);
     }
 
 

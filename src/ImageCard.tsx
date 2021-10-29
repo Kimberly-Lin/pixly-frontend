@@ -2,7 +2,8 @@ import "./ImageCard.css"
 
 interface CardPropsInterface {
     src: string;
-    caption: string
+    caption: string;
+    dims?: {width: number, length:number}
 }
 /** Card: displays image.
  * 
@@ -16,12 +17,14 @@ interface CardPropsInterface {
  * {ImageUpload, AllImages} -> ImageCard
  */
 
-function ImageCard({ src, caption }: CardPropsInterface) {
+function ImageCard({ src, caption, dims }: CardPropsInterface) {
 
     return (
         <div className="Image-card">
             <img className="Image-card-image" src={src} alt="uploaded img" style={{ "width": "400px" }} />
             <i className="Image-card-caption">{caption}</i>
+            {(dims) && <b className="Image-card-dimensions">{dims.width}x{dims.length}</b>}
+            
         </div>
     );
 }

@@ -29,7 +29,8 @@ function EditPage({ id, handleEdit, fileLocation }) {
     async function handleClick(evt) {
         evt.preventDefault();
         const resp = await PixlyApi.edit(id, fileLocation, evt.target.id) //"successful"
-        handleEdit(resp.file_location)
+        console.log(resp, 'in EditPage');
+        handleEdit(resp)
     }
 
     return (

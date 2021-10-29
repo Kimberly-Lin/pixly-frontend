@@ -42,7 +42,7 @@ function AllImages() {
         : images.map(image =>
           <div key={image.id} className="AllImages-imageCard">
             <Link to={`/image/${image.id}`}>
-              <ImageCard src={image.imgUrl} caption={image.caption} />
+              <ImageCard src={image.imgUrl} caption={image.caption} dims={{'width': image.width, 'length': image.length}} />
             </Link>
           </div>)
       }
