@@ -54,7 +54,7 @@ class PixlyAPI {
   static async startEdit(id): Promise<string> {
     try {
       const resp = await axios.post(`${API_URL}/image/${id}/start_edit`)
-      return resp.data.file_location;
+      return resp.data;
     }
     catch (err) {
       throw err;
@@ -65,7 +65,7 @@ class PixlyAPI {
    *  Returns file_location of image on the server
    * */
 
-  static async edit(id, fileLocation, editType): Promise<string> {
+  static async edit(id, fileLocation, editType) {
     try {
       const resp = await axios.post(
         `${API_URL}/image/${id}/edit`,
@@ -73,14 +73,14 @@ class PixlyAPI {
           'edit_type': editType,
           'file_location': fileLocation
         })
-      return resp.data.status; //Need to confirm
+      return resp.data.file_location; //Need to confirm
     }
     catch (err) {
       throw err;
     }
   }
 
-  
+
   /** Method for saving an editted image. 
    *  Returns the image details object and uploads the new image to AWS.
    * */

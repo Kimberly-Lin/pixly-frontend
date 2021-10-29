@@ -10,11 +10,15 @@
  */
 
 function ImageBeingEdited({ fileLocation }) {
+    console.log("imageBeingEdited", { fileLocation })
+    const new_fileLocation = fileLocation.file_location;
+
+    const path = new_fileLocation.replace("./temp_image_edits", "");
 
     return (
         <div className="Image-card">
             <img className="Image-card-image"
-                src={fileLocation}
+                src={`http://localhost:5000/editimages${path}`}
                 alt="edited img"
                 style={{ "width": "400px" }} />
         </div>
