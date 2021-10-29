@@ -1,3 +1,4 @@
+import "./NavBar.css";
 import { NavLink } from "react-router-dom";
 
 /**
@@ -8,14 +9,14 @@ import { NavLink } from "react-router-dom";
  * 
  * App -> Nav
  */
-function Nav() {
+function NavBar() {
     return (
-        <div>
-            <NavLink to="/">Home</NavLink>
+        <div className="NavBar">
+            <NavLink to="/">Pixly</NavLink>
             <NavLink to="/upload">Upload</NavLink>
             <NavLink to="/all">All</NavLink>
         </div>
     )
 }
 
-export default Nav;
+export default NavBar;

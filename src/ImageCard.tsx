@@ -1,3 +1,5 @@
+import "./ImageCard.css"
+
 interface CardPropsInterface {
     src: string;
     caption: string
@@ -17,9 +19,9 @@ interface CardPropsInterface {
 function ImageCard({ src, caption }: CardPropsInterface) {
 
     return (
-        <div className="Card">
-            <img className="Card-image" src={src} alt="uploaded img" style={{ "width": "200px" }} />
-            <i>{caption}</i>
+        <div className="Image-card">
+            <img className="Image-card-image" src={src} alt="uploaded img" style={{ "width": "400px" }} />
+            <i className="Image-card-caption">{caption}</i>
         </div>
     );
 }

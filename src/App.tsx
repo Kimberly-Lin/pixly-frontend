@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter } from "react-router-dom";
 
 import Routes from "./Routes";
-import Nav from "./Nav";
+import NavBar from './NavBar';
 
 /** Renders Pixly App
  * 
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav />
+        <NavBar />
         <Routes />
       </BrowserRouter>
     </div>

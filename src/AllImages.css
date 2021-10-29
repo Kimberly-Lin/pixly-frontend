@@ -1,0 +1,7 @@
+.AllImages-imageCard{
+  display:inline
+}
+
+.AllImages-imageCard > a{
+  text-decoration: none;
+}

@@ -1,0 +1,9 @@
+.Image-card{
+  display: inline
+}
+
+.Image-card-caption{
+  display:block;
+  background-color: rgba(128, 128, 128, 0.502);
+  color:white;
+}
