@@ -1,5 +1,6 @@
-import "./NavBar.css";
 import { NavLink } from "react-router-dom";
+
+import "./NavBar.css";
 
 /**
  * Creates nav links for home & upload page

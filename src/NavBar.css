@@ -7,6 +7,9 @@
 .NavBar a {
   color: #f0f2f5;
   text-decoration: none;
+  margin: 2em 2em 0em 2em;
+  padding: 1em 1em 0em 1em;
+  font-size: 18px;
 }
 
 .NavBar a.active {
