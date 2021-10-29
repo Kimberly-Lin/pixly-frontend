@@ -47,6 +47,59 @@ class PixlyAPI {
     }
   }
 
+  /** Method for starting image edit. 
+   *  Returns file_location of image on the server
+   * */
+
+  static async startEdit(id): Promise<string> {
+    try {
+      const resp = await axios.post(`${API_URL}/image/${id}/start_edit`)
+      return resp.data.file_location;
+    }
+    catch (err) {
+      throw err;
+    }
+  }
+
+  /** Method for editing an image with by editType. 
+   *  Returns file_location of image on the server
+   * */
+
+  static async edit(id, fileLocation, editType): Promise<string> {
+    try {
+      const resp = await axios.post(
+        `${API_URL}/image/${id}/edit`,
+        {
+          'edit_type': editType,
+          'file_location': fileLocation
+        })
+      return resp.data.status; //Need to confirm
+    }
+    catch (err) {
+      throw err;
+    }
+  }
+
+  
+  /** Method for saving an editted image. 
+   *  Returns the image details object and uploads the new image to AWS.
+   * */
+
+  static async saveEdits(id, fileLocation, caption): Promise<ImageDataInterface> {
+    try {
+      const resp = await axios.post(
+        `${API_URL}/image/${id}/save_edits`,
+        {
+          'caption': caption,
+          'file_location': fileLocation
+        })
+      return resp.data.image_details; //Need to confirm
+    }
+    catch (err) {
+      throw err;
+    }
+  }
+
 }
 
 export default PixlyAPI;
