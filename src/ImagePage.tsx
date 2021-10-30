@@ -57,7 +57,7 @@ function ImagePage() {
         < div > {
             (!isEditing)
                 ? <div>
-                    <ImageCard src={image.imgUrl} caption={image.caption}></ImageCard>
+                    <ImageCard src={image.imgUrl} caption={image.caption} dims={{ 'width': image.width, 'length': image.length }} />
                     <button onClick={startEdit}>Edit Image</button>
                 </div>
                 : <div>

@@ -1,6 +1,4 @@
-import react, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 
 import PixlyApi from './PixlyAPI';
 
@@ -19,11 +17,13 @@ const EDIT_TYPES = [['rotate', 'Rotate'], ['bw', 'Black & White'], ['resize', 'R
  * 
  */
 
-function EditPage({ id, handleEdit, fileLocation }) {
+function EditPage({ id, handleEdit, fileLocation, }) {
 
     async function saveEdits() {
+        //TODO: caption is hardcoded. Should implement form later
         const result = await PixlyApi.saveEdits(id, fileLocation, 'caption');
-        return <Redirect push to={`/image/${result.imgUrl}`} />;
+        //TODO: redirect does not work
+        return <Redirect push to={`/image/${result.id}${result.file_extension}`} />;
     }
 
     async function handleClick(evt) {

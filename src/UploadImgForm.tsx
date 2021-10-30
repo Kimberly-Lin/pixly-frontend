@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-import { Button } from 'react-bootstrap';
 /**Renders a form to upload an image and a caption
  * 
  * Props: handleImgUpload fn
@@ -19,6 +17,7 @@ function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
 
     function handleSubmit(evt: React.FormEvent) {
         evt.preventDefault();
+        console.log("uploadIMGFOrm handleSubmit")
         handleImgUpload(selectedFile, caption);
     }
 
@@ -40,7 +39,7 @@ function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCaption(e.target.value)}
                 />
                 <br />
-                <Button>Upload!</Button>
+                <button>Upload!</button>
             </form>
         </div>
     );

@@ -94,7 +94,7 @@ class PixlyAPI {
           'caption': caption,
           'file_location': fileLocation
         })
-      return resp.data.image_details; //Need to confirm
+      return resp.data; //Need to confirm
     }
     catch (err) {
       throw err;
