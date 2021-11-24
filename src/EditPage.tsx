@@ -36,7 +36,7 @@ function EditPage({ id, handleEdit, fileLocation, }) {
     return (
         <div> {
             EDIT_TYPES.map(editType => (
-                <button
+                <button className="btn btn-light"
                     onClick={handleClick}
                     id={editType[0]}
                     key={editType[0]}>
@@ -44,7 +44,7 @@ function EditPage({ id, handleEdit, fileLocation, }) {
                 </button>
             ))
         }
-            <button onClick={saveEdits}>Save Edits!</button>
+            <button className="btn btn-primary" onClick={saveEdits}>Save Edits!</button>
         </div >
 
     )

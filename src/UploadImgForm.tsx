@@ -22,24 +22,30 @@ function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
     }
 
     return (
-        <div className="upload-form">
+        <div className="upload-form container-fluid">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="imageUpload">Upload your image here: </label>
+              <div className="form-group">
+                <label className="col-sm-3 col-form-label" htmlFor="imageUpload">
+                    Upload your image here:
+                </label>
                 <input
+                    className="form-control"
                     type="file"
                     id="imageUpload"
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSelectedFile(e.target.files[0])}
                 />
                 <br />
-                <label htmlFor="caption">Caption: </label>
+                <label className="col-sm-3 col-form-label" htmlFor="caption">Caption: </label>
                 <input
+                    className="form-control"
                     id="caption"
                     type="textarea"
                     value={caption}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCaption(e.target.value)}
                 />
                 <br />
-                <button>Upload!</button>
+                <button className="btn btn-primary">Upload!</button>
+              </div>
             </form>
         </div>
     );

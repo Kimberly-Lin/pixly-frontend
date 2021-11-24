@@ -5,7 +5,7 @@ import UploadImgForm from './UploadImgForm';
 import PixlyAPI from './PixlyAPI';
 
 import { ImageDataInterface } from './interfaces';
-import './ImageUpload.css';
+// import './ImageUpload.css';
 
 
 /** Renders image upload form or displays uploaded image

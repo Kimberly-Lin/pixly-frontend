@@ -5,8 +5,6 @@ import Loading from "./Loading";
 import ImageCard from "./ImageCard";
 import PixlyAPI from "./PixlyAPI"
 import { ImageDataInterface } from "./interfaces";
-import "./AllImages.css"
-
 
 /** Renders loading or grid of all images
  * 
@@ -36,11 +34,11 @@ function AllImages() {
   }
 
   return (
-    < div className="AllImages">
+    < div className="AllImages row mt-3">
       {images.length === 0
         ? <h3>No images uploaded</h3>
         : images.map(image =>
-          <div key={image.id} className="AllImages-imageCard">
+          <div key={image.id} className="AllImages-imageCard col-sm-12 col-md-6 col-lg-4">
             <Link to={`/image/${image.id}`}>
               <ImageCard src={image.imgUrl} caption={image.caption} dims={{'width': image.width, 'length': image.length}} />
             </Link>

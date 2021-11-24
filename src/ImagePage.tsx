@@ -54,13 +54,13 @@ function ImagePage() {
     }
 
     return (
-        < div > {
+        < div className="Image-page container"> {
             (!isEditing)
-                ? <div>
+                ? <div className="container">
                     <ImageCard src={image.imgUrl} caption={image.caption} dims={{ 'width': image.width, 'length': image.length }} />
-                    <button onClick={startEdit}>Edit Image</button>
+                    <button className="btn btn-primary" onClick={startEdit}>Edit Image</button>
                 </div>
-                : <div>
+                : <div className="container">
                     <ImageBeingEdited fileLocation={fileLocation} />
                     <EditPage id={id} handleEdit={handleEdit} fileLocation={fileLocation} />
                 </div>

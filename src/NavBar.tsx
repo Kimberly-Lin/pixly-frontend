@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import "./NavBar.css";
+// import "./NavBar.css";
 
 /**
  * Creates nav links for home & upload page
@@ -12,10 +12,10 @@ import "./NavBar.css";
  */
 function NavBar() {
     return (
-        <div className="NavBar">
-            <NavLink to="/">Pixly</NavLink>
-            <NavLink to="/upload">Upload</NavLink>
-            <NavLink to="/all">All</NavLink>
+        <div className="navbar navbar-dark bg-primary container-fluid">
+            <NavLink to="/" className="navbar navbar-brand">Pixly</NavLink>
+            <NavLink to="/upload" className="nav-link">Upload</NavLink>
+            <NavLink to="/all" className="nav-link">All</NavLink>
         </div>
     )
 }

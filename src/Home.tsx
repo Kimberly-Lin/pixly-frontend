@@ -1,3 +1,5 @@
+import logo from "./pixly-logo.png"
+import "./Home.css"
 /** Renders Home page
  * 
  * Props: none
@@ -9,7 +11,8 @@
  */
 function Home() {
     return (
-        <div>
+        <div className="Home">
+            <img className="Home-img" src={logo} alt="logo"/>
             <h1>Welcome to Pix.ly!</h1>
         </div>
     )

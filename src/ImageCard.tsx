@@ -1,5 +1,3 @@
-import "./ImageCard.css"
-
 interface CardPropsInterface {
     src: string;
     caption: string;
@@ -21,11 +19,15 @@ function ImageCard({ src, caption, dims }: CardPropsInterface) {
 
     return (
         <div className="Image-card">
-            <img className="Image-card-image" src={src} alt="uploaded img" style={{ "width": "400px" }} />
-            <i className="Image-card-caption">{caption}</i>
+          <div className="card border-primary mb-1">
+            <div className="card-header">
+              <i className="Image-card-caption">{caption}</i>
+            </div> 
+              <img className="Image-card-image card-img-top" src={src} alt="uploaded img" />
             {(dims.width)
                 ? <b className="Image-card-dimensions">{dims.width}x{dims.length}</b>
                 : null}
+            </div>
         </div>
     );
 }

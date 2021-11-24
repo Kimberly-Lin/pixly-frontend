@@ -1,3 +1,4 @@
+import "./ImageBeingEdited.css"
 
 /** Card: displays current image edits.
  * 
@@ -14,7 +15,7 @@
 function ImageBeingEdited({ fileLocation }) {
     const path = fileLocation.replace("./temp_image_edits", "");
     return (
-        <div className="Image-card">
+        <div className="Image-being-edited">
             <img className="Image-card-image"
                 src={`http://localhost:5000/editimages${path}`}
                 alt="edited img"
