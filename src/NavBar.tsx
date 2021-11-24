@@ -14,8 +14,8 @@ function NavBar() {
     return (
         <div className="navbar navbar-dark bg-primary container-fluid">
             <NavLink to="/" className="navbar navbar-brand">Pixly</NavLink>
-            <NavLink to="/upload" className="nav-link">Upload</NavLink>
             <NavLink to="/all" className="nav-link">All</NavLink>
+            <NavLink to="/upload" className="nav-link">Upload</NavLink>
         </div>
     )
 }
