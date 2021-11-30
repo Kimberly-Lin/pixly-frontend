@@ -1,6 +1,6 @@
 export interface ImageDataInterface {
   id: string;
-  caption: string;
+  title: string;
   file_extension: string;
   imgUrl: string;
   width?: number;

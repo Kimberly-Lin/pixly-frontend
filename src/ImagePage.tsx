@@ -57,7 +57,7 @@ function ImagePage() {
         < div className="Image-page container"> {
             (!isEditing)
                 ? <div className="container">
-                    <ImageCard src={image.imgUrl} caption={image.caption} dims={{ 'width': image.width, 'length': image.length }} />
+                    <ImageCard src={image.imgUrl} title={image.title} dims={{ 'width': image.width, 'length': image.length }} />
                     <button className="btn btn-primary" onClick={startEdit}>Edit Image</button>
                 </div>
                 : <div className="container">

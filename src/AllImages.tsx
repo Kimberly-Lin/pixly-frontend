@@ -9,7 +9,7 @@ import { ImageDataInterface } from "./interfaces";
 /** Renders loading or grid of all images
  * 
  * Props: None
- * State: images = [{id, caption, imageUrl, width, length}, ...]
+ * State: images = [{id, title, imageUrl, width, length}, ...]
  *        isLoading = boolean
  * 
  * Routes -> AllImages -> {ImageCard, Loading}
@@ -40,7 +40,7 @@ function AllImages() {
         : images.map(image =>
           <div key={image.id} className="AllImages-imageCard col-sm-12 col-md-6 col-lg-4">
             <Link to={`/image/${image.id}`}>
-              <ImageCard src={image.imgUrl} caption={image.caption} dims={{'width': image.width, 'length': image.length}} />
+              <ImageCard src={image.imgUrl} title={image.title} dims={{'width': image.width, 'length': image.length}} />
             </Link>
           </div>)
       }

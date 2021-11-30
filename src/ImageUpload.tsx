@@ -24,7 +24,7 @@ function ImageUpload() {
 
   const [image, setImage] = useState<ImageDataInterface | null>(null);
 
-  async function handleImgUpload(image: File, caption: string): Promise<void> {
+  async function handleImgUpload(image: File, title: string): Promise<void> {
     console.log("handleImageUpload is called")
     const formData = new FormData();
     formData.append(
@@ -33,7 +33,7 @@ function ImageUpload() {
       image.name
     );
 
-    formData.append('caption', caption);
+    formData.append('title', title);
 
     const imgData = await PixlyAPI.uploadImage(formData);
 
@@ -46,7 +46,7 @@ function ImageUpload() {
   return (
     <div>
       {image
-        ? <ImageCard src={image.imgUrl} caption={image.caption} dims={{ 'width': image.width, 'length': image.length }} />
+        ? <ImageCard src={image.imgUrl} title={image.title} dims={{ 'width': image.width, 'length': image.length }} />
         : <UploadImgForm handleImgUpload={handleImgUpload} />
       }
     </div>

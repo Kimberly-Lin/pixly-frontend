@@ -7,7 +7,7 @@ const API_URL = 'http://localhost:5000';
 class PixlyAPI {
 
   /** Method for uploading images. Takes in formData object and 
-   * returns {id, caption, imageUrl, width, length} */
+   * returns {id, title, imageUrl, width, length} */
 
   static async uploadImage(formData): Promise<ImageDataInterface> {
     try {
@@ -20,7 +20,7 @@ class PixlyAPI {
   }
 
   /** Method for getting all images in db. 
-   * Returns [image, image,...] where image = {id, caption, imageUrl, width, length} 
+   * Returns [image, image,...] where image = {id, title, imageUrl, width, length} 
    * */
 
   static async getAllImages(): Promise<ImageDataInterface[]> {
@@ -34,7 +34,7 @@ class PixlyAPI {
   }
 
   /** Method for getting all images in db. 
-   * Returns [image, image,...] where image = {id, caption, imageUrl, width, length} 
+   * Returns [image, image,...] where image = {id, title, imageUrl, width, length} 
    * */
 
   static async getImage(id): Promise<ImageDataInterface> {
@@ -86,12 +86,12 @@ class PixlyAPI {
    *  Returns the image details object and uploads the new image to AWS.
    * */
 
-  static async saveEdits(id, fileLocation, caption): Promise<ImageDataInterface> {
+  static async saveEdits(id, fileLocation, title): Promise<ImageDataInterface> {
     try {
       const resp = await axios.post(
         `${API_URL}/image/${id}/save_edits`,
         {
-          'caption': caption,
+          'title': title,
           'file_location': fileLocation
         })
       return resp.data; //Need to confirm

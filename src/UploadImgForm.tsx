@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-/**Renders a form to upload an image and a caption
+/**Renders a form to upload an image and a title
  * 
  * Props: handleImgUpload fn
- * State: caption, selectedFile
+ * State: title, selectedFile
  * 
  * App -> UploadImgForm
  */
 
 interface UploadImgFormProps {
-    handleImgUpload: (image: File, caption: string) => Promise<void>;
+    handleImgUpload: (image: File, title: string) => Promise<void>;
 }
 
 function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
-    const [caption, setCaption] = useState<string>("");
+    const [title, setTitle] = useState<string>("");
     const [selectedFile, setSelectedFile] = useState<File>(new File([""], "emptyFile"));
 
     function handleSubmit(evt: React.FormEvent) {
         evt.preventDefault();
         console.log("uploadIMGFOrm handleSubmit")
-        handleImgUpload(selectedFile, caption);
+        handleImgUpload(selectedFile, title);
     }
 
     return (
@@ -35,13 +35,13 @@ function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSelectedFile(e.target.files[0])}
                 />
                 <br />
-                <label className="col-sm-3 col-form-label" htmlFor="caption">Caption: </label>
+                <label className="col-sm-3 col-form-label" htmlFor="title">Title: </label>
                 <input
                     className="form-control"
-                    id="caption"
+                    id="title"
                     type="textarea"
-                    value={caption}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCaption(e.target.value)}
+                    value={title}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
                 />
                 <br />
                 <button className="btn btn-primary">Upload!</button>

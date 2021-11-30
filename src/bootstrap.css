@@ -165,8 +165,8 @@ p {
   margin-bottom: 1rem;
 }
 
-abbr[title],
-abbr[data-bs-original-title] {
+abbr[caption],
+abbr[data-bs-original-caption] {
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
@@ -1936,19 +1936,19 @@ progress {
   caption-side: top;
 }
 
-.table-sm > :not(caption) > * > * {
+.table-sm > :not(title) > * > * {
   padding: 0.25rem 0.25rem;
 }
 
-.table-bordered > :not(caption) > * {
+.table-bordered > :not(title) > * {
   border-width: 1px 0;
 }
 
-.table-bordered > :not(caption) > * > * {
+.table-bordered > :not(title) > * > * {
   border-width: 0 1px;
 }
 
-.table-borderless > :not(caption) > * > * {
+.table-borderless > :not(title) > * > * {
   border-bottom-width: 0;
 }
 
@@ -6734,7 +6734,7 @@ fieldset:disabled .btn {
   opacity: 1;
 }
 
-.carousel-caption {
+.carousel-title {
   position: absolute;
   right: 15%;
   bottom: 1.25rem;
@@ -6899,7 +6899,7 @@ fieldset:disabled .btn {
   margin-bottom: -0.5rem;
 }
 
-.offcanvas-title {
+.offcanvas-caption {
   margin-bottom: 0;
   line-height: 1.5;
 }
