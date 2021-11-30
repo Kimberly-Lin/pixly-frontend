@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import PixlyAPI from "./PixlyAPI"
@@ -13,7 +13,7 @@ import ImageBeingEdited from './ImageBeingEdited';
  * Props: None
  * State: isLoading, image
  * 
- * Routes -> ImagePage -> {ImageCard, EditImage}
+ * Routes -> ImagePage -> {ImageCard, ImageBeingEdited}
  * 
  * Location: /image/:id
  * 
@@ -47,7 +47,6 @@ function ImagePage() {
         setFileLocation(fileLocation);
         setCueRender(r => !r);
     }
-
 
     if (isLoading) {
         return <Loading />
