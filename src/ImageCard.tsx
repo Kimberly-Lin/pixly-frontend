@@ -5,6 +5,7 @@ interface CardPropsInterface {
     title: string;
     dims?: { width: number, length: number }
 }
+
 /** Card: displays image.
  * 
  * Props:

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 
 import PixlyAPI from "./PixlyAPI"
 import { ImageDataInterface } from './interfaces';
@@ -11,13 +11,14 @@ import ImageBeingEdited from './ImageBeingEdited';
 /** Renders single image on page
  * 
  * Props: None
- * State: isLoading, image
+ * State: isEditing, isLoading, image, fileLocation, cueRender
  * 
- * Routes -> ImagePage -> {ImageCard, ImageBeingEdited}
+ * Routes -> ImagePage -> {ImageCard, ImageBeingEdited, EditPage}
  * 
  * Location: /image/:id
  * 
  */
+
 function ImagePage() {
     const [isEditing, setIsEditing] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -48,21 +49,34 @@ function ImagePage() {
         setCueRender(r => !r);
     }
 
+    function afterRedirect(result) {
+      setIsEditing(false);
+    }
+
     if (isLoading) {
         return <Loading />
     }
 
     return (
         < div className="Image-page container"> {
-            (!isEditing)
-                ? <div className="container">
-                    <ImageCard src={image.imgUrl} title={image.title} dims={{ 'width': image.width, 'length': image.length }} />
-                    <button className="btn btn-primary" onClick={startEdit}>Edit Image</button>
-                </div>
-                : <div className="container">
-                    <ImageBeingEdited fileLocation={fileLocation} />
-                    <EditPage id={id} handleEdit={handleEdit} fileLocation={fileLocation} />
-                </div>
+          (!isEditing)
+            ? <div className="container">
+              <ImageCard 
+                src={image.imgUrl} 
+                title={image.title} 
+                dims={{ 'width': image.width, 'length': image.length }} />
+              <button 
+                className="btn btn-primary" 
+                onClick={startEdit}> Edit Image</button>
+            </div>
+            : <div className="container">
+              <ImageBeingEdited fileLocation={fileLocation} />
+              <EditPage 
+                id={id} 
+                afterRedirect={afterRedirect} 
+                handleEdit={handleEdit}
+                  fileLocation={fileLocation} />
+            </div>
         }
         </div >
     )

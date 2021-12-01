@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+
+interface UploadImgFormProps {
+    handleImgUpload: (image: File, title: string) => Promise<void>;
+}
+
 /**Renders a form to upload an image and a title
  * 
  * Props: handleImgUpload fn
@@ -7,9 +12,6 @@ import React, { useState } from "react";
  * App -> UploadImgForm
  */
 
-interface UploadImgFormProps {
-    handleImgUpload: (image: File, title: string) => Promise<void>;
-}
 
 function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
     const [title, setTitle] = useState<string>("");
@@ -52,5 +54,3 @@ function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
 }
 
 export default UploadImgForm;
-
-//Typescript needs updating on file input e.target.files

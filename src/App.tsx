@@ -1,5 +1,3 @@
-// import './App.css';
-
 import { BrowserRouter } from "react-router-dom";
 
 import Routes from "./Routes";
@@ -12,6 +10,7 @@ import NavBar from './NavBar';
  * 
  * Index -> App -> {Nav, Routes}
  */
+
 function App() {
 
   return (

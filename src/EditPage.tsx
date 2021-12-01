@@ -1,4 +1,4 @@
-import { Redirect } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { useState } from 'react';
 import React from 'react';
 
@@ -10,36 +10,32 @@ const EDIT_TYPES = [['rotate', 'Rotate'], ['bw', 'Black & White'], ['resize', 'R
 
 /** Renders editting function for image
  * 
- * Props: id
- * State: isEditing, image
+ * Props: id, afterRedirect(f), handleEdit(f), fileLocation
+ * State: title
  * 
- * ImagePage -> {EditForm}
+ * ImagePage -> EditForm
  * 
  * Location: /image/:id
  * 
  */
 
-function EditForm({ id, handleEdit, fileLocation, }) {
+function EditForm({ id, afterRedirect, handleEdit, fileLocation, }) {
   const [title, setTitle] = useState<string>("");
-  const [result, setResult] = useState(null);
-
-  console.log({result})
+  const history = useHistory();
 
   async function saveEdits() {
       const result = await PixlyApi.saveEdits(id, fileLocation, title);
-      setResult(result);
+      history.push(`/image/${result.id}`);
+      history.go(1);
+      afterRedirect();
   }
 
   async function handleClick(evt) {
       evt.preventDefault();
       
-      const resp = await PixlyApi.edit(id, fileLocation, evt.target.id) //"successful"
+      const resp = await PixlyApi.edit(id, fileLocation, evt.target.id) 
       console.log(resp, 'in EditForm');
       handleEdit(resp)
-  }
-
-  if (result){
-    return <Redirect push to={`/image/${result[0].id}`} />
   }
 
   return (

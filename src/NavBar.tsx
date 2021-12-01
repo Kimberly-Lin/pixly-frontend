@@ -1,14 +1,12 @@
 import { NavLink } from "react-router-dom";
 
-// import "./NavBar.css";
-
 /**
  * Creates nav links for home & upload page
  * 
  * State: none
  * Props: none
  * 
- * App -> Nav
+ * App -> NavBar
  */
 function NavBar() {
     return (

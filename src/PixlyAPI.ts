@@ -74,7 +74,7 @@ class PixlyAPI {
           'file_location': fileLocation
         })
       console.log('in edit api', resp.data);
-      return resp.data.file_location; //Need to confirm
+      return resp.data.file_location;
     }
     catch (err) {
       throw err;
@@ -94,7 +94,7 @@ class PixlyAPI {
           'title': title,
           'file_location': fileLocation
         })
-      return resp.data; //Need to confirm
+      return resp.data;
     }
     catch (err) {
       throw err;
