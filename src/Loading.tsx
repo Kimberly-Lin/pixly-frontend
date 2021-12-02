@@ -7,8 +7,7 @@
  * {AllImages, ImageUpload} -> Loading
  */
 function Loading() {
-  console.log('loading')
-  return <h1> I'M LOADING !!! </h1>
+  return <h1> Please wait while I load... </h1>
 }
 
 export default Loading;

@@ -19,7 +19,6 @@ function UploadImgForm({ handleImgUpload }: UploadImgFormProps) {
 
     function handleSubmit(evt: React.FormEvent) {
         evt.preventDefault();
-        console.log("uploadIMGFOrm handleSubmit")
         handleImgUpload(selectedFile, title);
     }
 

@@ -38,13 +38,11 @@ function ImagePage() {
 
     async function startEdit() {
         const result = await PixlyAPI.startEdit(id);
-        console.log("startEdit fileLocation is: ", result)
         setFileLocation(result);
         setIsEditing(true);
     }
 
     function handleEdit(fileLocation) {
-        console.log("handleEdit ran", { fileLocation })
         setFileLocation(fileLocation);
         setCueRender(r => !r);
     }
@@ -75,7 +73,7 @@ function ImagePage() {
                 id={id} 
                 afterRedirect={afterRedirect} 
                 handleEdit={handleEdit}
-                  fileLocation={fileLocation} />
+                fileLocation={fileLocation} />
             </div>
         }
         </div >

@@ -34,7 +34,6 @@ function EditForm({ id, afterRedirect, handleEdit, fileLocation, }) {
       evt.preventDefault();
       
       const resp = await PixlyApi.edit(id, fileLocation, evt.target.id) 
-      console.log(resp, 'in EditForm');
       handleEdit(resp)
   }
 

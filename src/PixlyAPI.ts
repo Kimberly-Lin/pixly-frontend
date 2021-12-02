@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ImageDataInterface } from './interfaces';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:5000';
 
 /** List of API calls for Pixly App */
 class PixlyAPI {
@@ -73,7 +73,6 @@ class PixlyAPI {
           'edit_type': editType,
           'file_location': fileLocation
         })
-      console.log('in edit api', resp.data);
       return resp.data.file_location;
     }
     catch (err) {
